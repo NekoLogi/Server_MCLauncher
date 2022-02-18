@@ -1,0 +1,8 @@
+D:\User\Github\Server_MCLauncher\Server_MCLauncher\Server_MCLauncher\bin\Debug\Server_MCLauncher.exe.config
+D:\User\Github\Server_MCLauncher\Server_MCLauncher\Server_MCLauncher\bin\Debug\Server_MCLauncher.exe
+D:\User\Github\Server_MCLauncher\Server_MCLauncher\Server_MCLauncher\bin\Debug\Server_MCLauncher.pdb
+D:\User\Github\Server_MCLauncher\Server_MCLauncher\Server_MCLauncher\obj\Debug\Server_MCLauncher.csproj.AssemblyReference.cache
+D:\User\Github\Server_MCLauncher\Server_MCLauncher\Server_MCLauncher\obj\Debug\Server_MCLauncher.csproj.SuggestedBindingRedirects.cache
+D:\User\Github\Server_MCLauncher\Server_MCLauncher\Server_MCLauncher\obj\Debug\Server_MCLauncher.csproj.CoreCompileInputs.cache
+D:\User\Github\Server_MCLauncher\Server_MCLauncher\Server_MCLauncher\obj\Debug\Server_MCLauncher.exe
+D:\User\Github\Server_MCLauncher\Server_MCLauncher\Server_MCLauncher\obj\Debug\Server_MCLauncher.pdb

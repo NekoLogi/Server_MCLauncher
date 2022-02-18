@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "b29a37eb-9720-4dbf-a02b-841df2a36dab": {
+      "ProjectGuid": "b29a37eb-9720-4dbf-a02b-841df2a36dab",
+      "DisplayName": "Server_MCLauncher",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

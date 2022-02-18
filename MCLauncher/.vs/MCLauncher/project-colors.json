@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "ecbf32bc-8f19-4ce8-aadb-c117ae397678": {
+      "ProjectGuid": "ecbf32bc-8f19-4ce8-aadb-c117ae397678",
+      "DisplayName": "MCLauncher",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
