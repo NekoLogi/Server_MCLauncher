@@ -83,15 +83,15 @@ namespace Server_MCLauncher
         // Redirect to requested command.
         private void GetCommand(string data, Socket client)
         {
-            string[] command = data.Split(' ');
+            string[] command = data.Split('_');
             switch (command[0])
             {
                 case "VER":
-                    GetVersion(client);
+                    GetVersion(client, (Modpacks)int.Parse(command[1]));
                     break;
 
                 case "PAT":
-                    GetPatch(client);
+                    GetPatch(client, (Modpacks)int.Parse(command[1]));
                     break;
 
                 case "NEW":
@@ -102,11 +102,11 @@ namespace Server_MCLauncher
                     ModUpdate((Modpacks)int.Parse(command[1]), client);
                     break;
 
-                case "C_VER":
+                case "C-VER":
                     GetLauncherVersion(client);
                     break;
 
-                case "C_UPD":
+                case "C-UPD":
                     LauncherUpdate(client);
                     break;
 
@@ -117,18 +117,20 @@ namespace Server_MCLauncher
         }
 
         #region Commands
-        private void GetVersion(Socket client)
+        private void GetVersion(Socket client, Modpacks modpack)
         {
-            string path = "Modpack/Version.txt";
+            string path = $"Modpack/{modpack}/Version.txt";
+            Console.WriteLine("{0} requested from {1}", path, client.RemoteEndPoint);
 
             byte[] bytes = Encoding.ASCII.GetBytes(File.ReadAllText(path));
             client.Send(bytes);
             Console.WriteLine("Data sent!");
         }
 
-        private void GetPatch(Socket client)
+        private void GetPatch(Socket client, Modpacks modpack)
         {
-            string path = "Modpack/Patch.txt";
+            string path = $"Modpack/{modpack}/Patch.txt";
+            Console.WriteLine("{0} requested from {1}", path, client.RemoteEndPoint);
 
             byte[] bytes = Encoding.ASCII.GetBytes(File.ReadAllText(path));
             client.Send(bytes);
@@ -138,7 +140,8 @@ namespace Server_MCLauncher
 
         private void ModUpdate(Modpacks modpack, Socket client)
         {
-            string path = $"Modpack/{modpack}_update.zip";
+            string path = $"Modpack/{modpack}/{modpack}_update.zip";
+            Console.WriteLine("{0} requested from {1}", path, client.RemoteEndPoint);
 
             Console.WriteLine("Sending {0} update to {1}", modpack, client.RemoteEndPoint);
             client.SendFile(path);
@@ -149,7 +152,9 @@ namespace Server_MCLauncher
 
         private void ModInstall(Modpacks modpack, Socket client)
         {
-            string path = $"Modpack/{modpack}.zip";
+            string path = $"Modpack/{modpack}/{modpack}.zip";
+            Console.WriteLine("{0} requested from {1}", path, client.RemoteEndPoint);
+
 
             Console.WriteLine("Sending {0} to {1}", modpack, client.RemoteEndPoint);
             client.SendFile(path);
@@ -161,6 +166,7 @@ namespace Server_MCLauncher
         private void GetLauncherVersion(Socket client)
         {
             string path = "Launcher/Version.txt";
+            Console.WriteLine("{0} requested from {1}", path, client.RemoteEndPoint);
 
             byte[] bytes = Encoding.ASCII.GetBytes(File.ReadAllText(path));
             client.Send(bytes);
@@ -170,6 +176,7 @@ namespace Server_MCLauncher
         private void LauncherUpdate(Socket client)
         {
             string path = $"Launcher/launcher.zip";
+            Console.WriteLine("{0} requested from {1}", path, client.RemoteEndPoint);
 
             Console.WriteLine("Sending launcher update to {0}", client.RemoteEndPoint);
             client.SendFile(path);
